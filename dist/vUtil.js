@@ -5,6 +5,7 @@
  *
  * @author https://github.com/vmllab-js
  * @since 2017-09-14
+ * @version 0.0.1 alpha
  */
 (function (global, factory) {
 
@@ -26,197 +27,205 @@
 
 	var vUtil = {};
 
-	"use strict";
+"use strict";
+
+/**
+ * @author: Sussertod
+ */
+
+vUtil.Array = {};
+"use strict";
+
+/**
+ * @author: Miller Liang
+ */
+
+vUtil.Check = {};
+"use strict";
+
+/**
+ * @author: Rhine Liu
+ */
+
+vUtil.Cookie = {
+	/**
+  * set the value of a key in cookie
+  * @param key {String}
+  * @param value {String}
+  * @param expires {Number} seconds
+  */
+	set: function set(key, value, expires) {
+		document.cookie = key + "=" + escape(value) + (expires != undefined ? ";expires=" + new Date(Date.now() + expires * 1000).toGMTString() : "");
+	},
 
 	/**
-	 * @author: Sussertod
-	 */
-
-	vUtil.Array = {};
-	"use strict";
-
-	/**
-	 * @author: Miller Liang
-	 */
-
-	vUtil.Check = {};
-	"use strict";
+  * get the value of a key in cookie
+  * @param key {String}
+  * @returns {String|Null}
+  */
+	get: function get(key) {
+		var a = document.cookie.match(new RegExp("(^| )" + key + "=([^;]*)(;|$)"));
+		return a ? unescape(a[2]) : null;
+	},
 
 	/**
-	 * @author: Rhine Liu
-	 */
+  * remove a key from cookie
+  * @param key {String}
+  */
+	remove: function remove(key) {
+		this.set(key, '', 0);
+	}
+};
+"use strict";
 
-	vUtil.Cookie = {
-		/**
-		 * set the value of a key in cookie
-		 * @param key {String}
-		 * @param value {String}
-		 * @param expires {Number} seconds
-		 */
-		set: function set(key, value, expires) {
-			document.cookie = key + "=" + escape(value) + (expires != undefined ? ";expires=" + new Date(Date.now() + expires * 1000).toGMTString() : "");
-		},
+/**
+ * @author: Sussertod
+ */
 
-		/**
-		 * get the value of a key in cookie
-		 * @param key {String}
-		 * @returns {String|Null}
-		 */
-		get: function get(key) {
-			var a = document.cookie.match(new RegExp("(^| )" + key + "=([^;]*)(;|$)"));
-			return a ? unescape(a[2]) : null;
-		},
+vUtil.DOM = {};
+"use strict";
 
-		/**
-		 * remove a key from cookie
-		 * @param key {String}
-		 */
-		remove: function remove(key) {
-			this.set(key, '', 0);
-		}
-	};
-	"use strict";
+/**
+ * @author: Miller Liang
+ */
 
-	/**
-	 * @author: Sussertod
-	 */
+vUtil.Date = {};
+"use strict";
 
-	vUtil.DOM = {};
-	"use strict";
+/**
+ * @author: iorilp
+ */
 
-	/**
-	 * @author: Miller Liang
-	 */
+vUtil.Event = {};
+"use strict";
 
-	vUtil.Date = {};
-	"use strict";
+/**
+ * @author: Rhine Liu
+ */
 
-	/**
-	 * @author: iorilp
-	 */
+vUtil.Location = {
+	search: function search(key) {
+		var r = location.search.match(new RegExp("(^|&)" + key + "=([^&]*)(&|$)"));
+		return r ? decodeURIComponent(r[2]) : null;
+	},
+	hash: function hash(key) {
+		var r = location.hash.match(new RegExp("([\?|&])" + key + "=([^&]*)(&|$)"));
+		return r ? decodeURIComponent(r[2]) : null;
+	}
+};
+"use strict";
 
-	vUtil.Event = {};
-	"use strict";
+/**
+ * @author: Rhine Liu
+ */
 
-	/**
-	 * @author: Rhine Liu
-	 */
+vUtil.Math = {};
+"use strict";
 
-	vUtil.Location = {};
-	"use strict";
+/**
+ * @author: Sussertod
+ */
 
-	/**
-	 * @author: Rhine Liu
-	 */
+vUtil.Object = {};
+"use strict";
 
-	vUtil.Math = {};
-	"use strict";
+/**
+ * @author: Miller Liang
+ */
 
-	/**
-	 * @author: Sussertod
-	 */
+vUtil.String = {};
+"use strict";
 
-	vUtil.Object = {};
-	"use strict";
+/**
+ * @author: iorilp
+ */
 
-	/**
-	 * @author: Miller Liang
-	 */
+var vUtil = vUtil || {};
+vUtil.UA = {};
 
-	vUtil.String = {};
-	"use strict";
+!function () {
+    var UA = window.navigator.userAgent.toLowerCase();
 
-	/**
-	 * @author: iorilp
-	 */
+    //判断是否IOS
+    vUtil.UA.ios = function () {
+        try {
+            return (/(iPhone|iPad|iPod|iOS)/i.test(UA)
+            );
+        } catch (e) {
+            return false;
+        }
+    }();
 
-	var vUtil = vUtil || {};
-	vUtil.UA = {};
+    //判断是否安卓
+    vUtil.UA.android = function () {
+        try {
+            return (/(Android)/i.test(UA)
+            );
+        } catch (e) {
+            return false;
+        }
+    }();
 
-	!function () {
-		var UA = window.navigator.userAgent.toLowerCase();
+    //判断是否PC
+    vUtil.UA.pc = function () {
+        try {
+            return !vUtil.UA.ios && !vUtil.UA.android;
+        } catch (e) {
+            return false;
+        }
+    }();
 
-		//判断是否IOS
-		vUtil.UA.ios = function () {
-			try {
-				return (/(iPhone|iPad|iPod|iOS)/i.test(UA)
-				);
-			} catch (e) {
-				return false;
-			}
-		}();
+    //判断是否移动设备
+    vUtil.UA.mobile = function () {
+        try {
+            return vUtil.UA.ios || vUtil.UA.android;
+        } catch (e) {
+            return false;
+        }
+    }();
 
-		//判断是否安卓
-		vUtil.UA.android = function () {
-			try {
-				return (/(Android)/i.test(UA)
-				);
-			} catch (e) {
-				return false;
-			}
-		}();
+    //判断是否微信
+    vUtil.UA.wx = function () {
+        try {
+            return (/(MicroMessenger)/i.test(UA)
+            );
+        } catch (e) {
+            return false;
+        }
+    }();
 
-		//判断是否PC
-		vUtil.UA.pc = function () {
-			try {
-				return !vUtil.UA.ios && !vUtil.UA.android;
-			} catch (e) {
-				return false;
-			}
-		}();
+    //判断是否钉钉
+    vUtil.UA.dd = function () {
+        try {
+            return (/(DingTalk)/i.test(UA)
+            );
+        } catch (e) {
+            return false;
+        }
+    }();
 
-		//判断是否移动设备
-		vUtil.UA.mobile = function () {
-			try {
-				return vUtil.UA.ios || vUtil.UA.android;
-			} catch (e) {
-				return false;
-			}
-		}();
+    //返回DEVICE
+    vUtil.UA.device = function () {
+        try {
+            if (vUtil.UA.ios) return "iOS";
+            if (vUtil.UA.android) return "Android";
+            return "PC";
+        } catch (e) {
+            return false;
+        }
+    }();
 
-		//判断是否微信
-		vUtil.UA.wx = function () {
-			try {
-				return (/(MicroMessenger)/i.test(UA)
-				);
-			} catch (e) {
-				return false;
-			}
-		}();
-
-		//判断是否钉钉
-		vUtil.UA.dd = function () {
-			try {
-				return (/(DingTalk)/i.test(UA)
-				);
-			} catch (e) {
-				return false;
-			}
-		}();
-
-		//返回DEVICE
-		vUtil.UA.device = function () {
-			try {
-				if (vUtil.UA.ios) return "iOS";
-				if (vUtil.UA.android) return "Android";
-				if (!vUtil.UA.ios && !vUtil.UA.android) return "PC";
-				return "Unknown";
-			} catch (e) {
-				return false;
-			}
-		}();
-
-		//返回软件
-		vUtil.UA.app = function () {
-			try {
-				if (vUtil.UA.wx) return "wx";
-				if (vUtil.UA.dd) return "dd";
-				return "Unknown";
-			} catch (e) {
-				return false;
-			}
-		}();
-	}();
+    //返回软件
+    vUtil.UA.app = function () {
+        try {
+            if (vUtil.UA.wx) return "wx";
+            if (vUtil.UA.dd) return "dd";
+            return "Unknown";
+        } catch (e) {
+            return false;
+        }
+    }();
+}();
 
 
 	return vUtil;
