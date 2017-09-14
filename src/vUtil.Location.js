@@ -4,11 +4,11 @@
 
 vUtil.Location = {
 	search (key) {
-		var r = location.search.match(new RegExp("(^|&)" + key + "=([^&]*)(&|$)"));
+		let r = location.search.match(new RegExp("(^|&)" + key + "=([^&]*)(&|$)"));
 		return r ? decodeURIComponent(r[2]) : null;
 	},
 	hash (key) {
-		var r = location.hash.match(new RegExp("([\?|&])" + key + "=([^&]*)(&|$)"));
+		let r = location.hash.match(new RegExp("([\?|&])" + key + "=([^&]*)(&|$)"));
 		return r ? decodeURIComponent(r[2]) : null;
 	}
 };
