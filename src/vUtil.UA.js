@@ -49,8 +49,7 @@ vUtil.UA = {};
         try {
             if(vUtil.UA.ios)return "iOS";
             if(vUtil.UA.android)return "Android";
-            if(!vUtil.UA.ios && !vUtil.UA.android)return "PC";
-            return "Unknown";
+            return "PC";
         }
         catch( e ) { return false; }
     })();
