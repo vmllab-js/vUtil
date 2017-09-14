@@ -1,0 +1,5 @@
+/**
+ * @author: iorilp
+ */
+
+vUtil.UA = {};

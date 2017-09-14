@@ -1,0 +1,5 @@
+/**
+ * @author: Sussertod
+ */
+
+vUtil.Object = {};
