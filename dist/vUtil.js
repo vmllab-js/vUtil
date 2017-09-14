@@ -26,7 +26,62 @@
 
 	var vUtil = {};
 
-"__vUtil__"
+/**
+ * @author: Sussertod
+ */
+
+vUtil.Array = {};
+/**
+ * @author: Miller Liang
+ */
+
+vUtil.Check = {};
+/**
+ * @author: Rhine Liu
+ */
+
+vUtil.Cookie = {};
+/**
+ * @author: Sussertod
+ */
+
+vUtil.DOM = {};
+/**
+ * @author: Miller Liang
+ */
+
+vUtil.Date = {};
+/**
+ * @author: iorilp
+ */
+
+vUtil.Event = {};
+/**
+ * @author: Rhine Liu
+ */
+
+vUtil.Location = {};
+/**
+ * @author: Rhine Liu
+ */
+
+vUtil.Math = {};
+/**
+ * @author: Sussertod
+ */
+
+vUtil.Object = {};
+/**
+ * @author: Miller Liang
+ */
+
+vUtil.String = {};
+/**
+ * @author: iorilp
+ */
+
+vUtil.UA = {};
+
 
 	return vUtil;
 });

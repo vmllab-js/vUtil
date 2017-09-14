@@ -1,11 +1,13 @@
 var gulp = require('gulp');
-var gulpSequence = require('gulp-sequence');
 var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 var concat = require('./build.js');
 
 gulp.task('build', [], function () {
-	console.log(concat)
-	return gulp.src('./')
-		.pipe(concat())
-		.pipe(gulp.dest('./'));
+	return gulp.src('../src/*.js')
+		.pipe(concat('vUtil.js', '"__vUtil__"'))
+		.pipe(gulp.dest('../dist/'))
+		.pipe(uglify({preserveComments: 'license'}))
+		.pipe(rename('vUtil.min.js'))
+		.pipe(gulp.dest('../dist/'));
 });
