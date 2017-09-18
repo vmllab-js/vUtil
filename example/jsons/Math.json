@@ -1,24 +1,34 @@
 {
 	"examples": [
 		{
+			"func": "vUtil.Math.random",
 			"desc": "",
-			"code": "log( vUtil.Math.random() )\nlog( vUtil.Math.random(9.9) )\nlog( vUtil.Math.random(10) )"
+			"code": "log( vUtil.Math.random() )\nlog( vUtil.Math.random(10) )\nlog( vUtil.Math.random(10, true) )"
 		},
 		{
+			"func": "vUtil.Math.random",
 			"desc": "",
 			"code": "log( vUtil.Math.random('abcdefghijklmnopqrstuvwxyz') )\nlog( vUtil.Math.random('零一二三四五六七八九十') )"
 		},
 		{
+			"func": "vUtil.Math.random",
 			"desc": "",
 			"code": "vUtil.Math.random(['a','A','1',2])"
 		},
 		{
+			"func": "vUtil.Math.random",
 			"desc": "",
 			"code": "vUtil.Math.random({'a':'b', 'c':'d', 'e':'f'})"
 		},
 		{
+			"func": "vUtil.Math.random",
 			"desc": "",
-			"code": "log( vUtil.Math.random(9, 10) )\nlog( vUtil.Math.random(10, 9) )\nlog( vUtil.Math.random(9.9, 10) )\nlog( vUtil.Math.random(10, 9.9) )"
+			"code": "log( vUtil.Math.random(90, 100) )\nlog( vUtil.Math.random(90, 100, true) )\nlog( vUtil.Math.random(100, 90) )\nlog( vUtil.Math.random(100, 90, true) )"
+		},
+		{
+			"func": "vUtil.Math.randomlySelect",
+			"desc": "",
+			"code": "log( vUtil.Math.randomlySelect(10, 5) )\nlog( vUtil.Math.randomlySelect(10, 5, true) )\nlog( vUtil.Math.randomlySelect([0,1,2,3,4,5,6,7,8,9], 5) )"
 		}
 	]
 }

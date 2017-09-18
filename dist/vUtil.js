@@ -173,58 +173,84 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * @author: Rhine Liu
  */
 
-(function () {
-	vUtil.Math = {
-		random: function random(a, b) {
-			if (arguments.length == 0) {
-				// Math.random
-				return rand();
+vUtil.Math = {
+	random: function random(a, b, c) {
+		if (arguments.length == 0) {
+			// Math.random
+			return rand();
+		}
+		if (typeof a == 'number') {
+			// Float
+			if (typeof b == 'boolean' && b) {
+				return rand() * a;
 			}
-			if (arguments.length == 1) {
-				if (typeof a == 'number') {
-					if (parseInt(a) == a) {
-						// Int
-						return Math.floor(rand() * a);
-					}
-					// Float
-					return rand() * a;
+			if (typeof b == 'number') {
+				// Float
+				if (typeof c == 'boolean' && c) {
+					return a + rand() * (b - a);
 				}
-				if (typeof a == 'string') {
-					// String
-					return a[this.random(a.length)];
-				}
-				if ((typeof a === 'undefined' ? 'undefined' : _typeof(a)) == 'object') {
-					if (a instanceof window.Array) {
-						// Array
-						return a[this.random(a.length)];
-					} else {
-						// Object
-						var arr = [];
-						for (var i in a) {
-							arr.push(i);
-						}
-						var index = this.random(arr);
-						return [index, a[index]];
-					}
-				}
+				// Int
+				return a + (a > b ? -this.random(a - b + 1) : this.random(b - a + 1));
 			}
-			if (arguments.length == 2) {
-				if (typeof a == 'number' && typeof b == 'number') {
-					if (parseInt(a) == a && parseInt(b) == b) {
-						// Int && Int
-						return a + (a > b ? -this.random(a - b + 1) : this.random(b - a + 1));
-					}
-					// Float || Float
-					return a + this.random(b - a);
+			// Int
+			return Math.floor(rand() * a);
+		}
+		if (typeof a == 'string') {
+			// String
+			return a[this.random(a.length)];
+		}
+		if ((typeof a === 'undefined' ? 'undefined' : _typeof(a)) == 'object') {
+			if (a instanceof window.Array) {
+				// Array
+				return a[this.random(a.length)];
+			} else {
+				// Object
+				var arr = [];
+				for (var i in a) {
+					arr.push(i);
 				}
+				var index = this.random(arr);
+				return [index, a[index]];
 			}
 		}
-	};
-
-	function rand() {
-		return Math.random();
+	},
+	randomlySelect: function randomlySelect(arg, num, force) {
+		if (typeof arg == "number") {
+			if (!force) {
+				// Int
+				var nums = [];
+				for (var i = 0; i < arg; ++i) {
+					nums.push(i);
+				}
+				var arr = [];
+				for (var _i = 0; _i < num; ++_i) {
+					var index = this.random(nums.length);
+					arr.push(nums[index]);
+					nums.splice(index, 1);
+				}
+				return arr;
+			} else {
+				// Float
+				var _arr = [];
+				for (var _i2 = 0; _i2 < num; ++_i2) {
+					_arr.push(rand() * arg);
+				}
+				return _arr;
+			}
+		}
+		if (arg instanceof window.Array) {
+			var _arr2 = this.randomlySelect(arg.length, num);
+			_arr2.forEach(function (val, ind) {
+				_arr2[ind] = arg[val];
+			});
+			return _arr2;
+		}
 	}
-})();
+};
+
+function rand() {
+	return Math.random();
+}
 })(vUtil);
 (function(vUtil){
 "use strict";
