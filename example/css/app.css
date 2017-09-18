@@ -42,7 +42,9 @@ body, html {
       box-sizing: border-box; }
       #content .example pre code {
         margin-top: 5px;
-        padding: 10px 15px; }
+        padding: 10px 15px;
+        white-space: pre-wrap;
+        word-break: break-all; }
   #content .btn {
     display: inline-block;
     border-radius: 3px;

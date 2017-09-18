@@ -1,0 +1,14 @@
+{
+	"examples": [
+		{
+			"func": "vUtil.UA",
+			"desc": "",
+			"code": "navigator.userAgent"
+		},
+		{
+			"func": "vUtil.UA",
+			"desc": "",
+			"code": "log( vUtil.UA.ios )\nlog( vUtil.UA.android )\nlog( vUtil.UA.pc )\nlog( vUtil.UA.device )"
+		}
+	]
+}
