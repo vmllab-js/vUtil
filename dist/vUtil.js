@@ -27,6 +27,7 @@
 
 	var vUtil = {};
 
+(function(vUtil){
 "use strict";
 
 /**
@@ -34,6 +35,8 @@
  */
 
 vUtil.Array = {};
+})(vUtil);
+(function(vUtil){
 "use strict";
 
 /**
@@ -67,6 +70,8 @@ vUtil.Check = {
     }
 
 };
+})(vUtil);
+(function(vUtil){
 "use strict";
 
 /**
@@ -102,6 +107,8 @@ vUtil.Cookie = {
 		this.set(key, '', 0);
 	}
 };
+})(vUtil);
+(function(vUtil){
 "use strict";
 
 /**
@@ -109,6 +116,8 @@ vUtil.Cookie = {
  */
 
 vUtil.DOM = {};
+})(vUtil);
+(function(vUtil){
 "use strict";
 
 /**
@@ -116,6 +125,8 @@ vUtil.DOM = {};
  */
 
 vUtil.Date = {};
+})(vUtil);
+(function(vUtil){
 "use strict";
 
 /**
@@ -123,6 +134,8 @@ vUtil.Date = {};
  */
 
 vUtil.Event = {};
+})(vUtil);
+(function(vUtil){
 "use strict";
 
 /**
@@ -150,6 +163,8 @@ vUtil.Location = {
 		return r ? decodeURIComponent(r[2]) : null;
 	}
 };
+})(vUtil);
+(function(vUtil){
 'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -195,7 +210,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			}
 			if (arguments.length == 2) {
 				if (typeof a == 'number' && typeof b == 'number') {
-					return a + this.random(b - a + 1);
+					if (parseInt(a) == a && parseInt(b) == b) {
+						// Int && Int
+						return a + (a > b ? -this.random(a - b + 1) : this.random(b - a + 1));
+					}
+					// Float || Float
+					return a + this.random(b - a);
 				}
 			}
 		}
@@ -205,6 +225,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		return Math.random();
 	}
 })();
+})(vUtil);
+(function(vUtil){
 "use strict";
 
 /**
@@ -212,6 +234,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  */
 
 vUtil.Object = {};
+})(vUtil);
+(function(vUtil){
 "use strict";
 
 /**
@@ -224,6 +248,8 @@ vUtil.String = {
         return this.replace(/^\s+|\s+$/g, "");
     }
 };
+})(vUtil);
+(function(vUtil){
 "use strict";
 
 /**
@@ -316,6 +342,7 @@ vUtil.UA = {};
         }
     }();
 }();
+})(vUtil);
 
 
 	return vUtil;

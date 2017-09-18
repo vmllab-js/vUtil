@@ -10,7 +10,7 @@ module.exports = function (distFile, replaceWords) {
 		//buffer对象可以操作
 		if (file.isBuffer()) {
 			//拿到单个文件buffer
-			utilStr += file.contents.toString(encoding) + '\n';
+			utilStr += '(function(vUtil){\n' + file.contents.toString(encoding) + '\n})(vUtil);\n';
 			file.contents = new Buffer(utilStr, encoding);
 		}
 
