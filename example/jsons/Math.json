@@ -1,0 +1,24 @@
+{
+	"examples": [
+		{
+			"desc": "",
+			"code": "log( vUtil.Math.random() )\nlog( vUtil.Math.random(9.9) )\nlog( vUtil.Math.random(10) )"
+		},
+		{
+			"desc": "",
+			"code": "log( vUtil.Math.random('abcdefghijklmnopqrstuvwxyz') )\nlog( vUtil.Math.random('零一二三四五六七八九十') )"
+		},
+		{
+			"desc": "",
+			"code": "vUtil.Math.random(['a','A','1',2])"
+		},
+		{
+			"desc": "",
+			"code": "vUtil.Math.random({'a':'b', 'c':'d', 'e':'f'})"
+		},
+		{
+			"desc": "",
+			"code": "log( vUtil.Math.random(9, 10) )\nlog( vUtil.Math.random(10, 9) )\nlog( vUtil.Math.random(9.9, 10) )\nlog( vUtil.Math.random(10, 9.9) )"
+		}
+	]
+}

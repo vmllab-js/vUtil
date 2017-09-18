@@ -1,0 +1,77 @@
+$color-primary: #02a5f0;
+
+body, html {
+	margin: 0;
+	height: 100%;
+	font-family: Courier New, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+	font-size: 16px;
+}
+
+#sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 256px;
+	height: 100%;
+	border-right: 1px solid $color-primary;
+	box-shadow: 0 0 10px rgba($color-primary, 0.75);
+
+	.logo {
+		margin: 20px 15%;
+		width: 70%;
+	}
+	.list {
+		a {
+			padding: 8px 36px;
+			display: block;
+			text-decoration: none;
+			color: $color-primary;
+			font-size: 20px;
+			transition: all .5s;
+			&.active, &:hover {
+				color: white;
+				background: $color-primary;
+			}
+		}
+	}
+}
+
+#content {
+	padding-left: 280px;
+	padding-right: 20px;
+	.example {
+		border-top: 1px solid rgba(#000, 0.15);
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		pre {
+			padding: 10px;
+			float: left;
+			width: 50%;
+			box-sizing: border-box;
+			code {
+				margin-top: 5px;
+				padding: 10px 15px;
+			}
+		}
+	}
+	.btn {
+		display: inline-block;
+		border-radius: 3px;
+		color: white;
+		background: $color-primary;
+		padding: 6px 12px;
+		cursor: pointer;
+		user-select: none;
+		transition: all 0.5s;
+		&:hover {
+			background: lighten($color-primary, 10);
+		}
+		&.btn-run {
+			float: right;
+			margin-top: 5px;
+		}
+	}
+}

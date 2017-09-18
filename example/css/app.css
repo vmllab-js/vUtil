@@ -1,0 +1,61 @@
+body, html {
+  margin: 0;
+  height: 100%;
+  font-family: Courier New, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+  font-size: 16px; }
+
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 256px;
+  height: 100%;
+  border-right: 1px solid #02a5f0;
+  box-shadow: 0 0 10px rgba(2, 165, 240, 0.75); }
+  #sidebar .logo {
+    margin: 20px 15%;
+    width: 70%; }
+  #sidebar .list a {
+    padding: 8px 36px;
+    display: block;
+    text-decoration: none;
+    color: #02a5f0;
+    font-size: 20px;
+    transition: all .5s; }
+    #sidebar .list a.active, #sidebar .list a:hover {
+      color: white;
+      background: #02a5f0; }
+
+#content {
+  padding-left: 280px;
+  padding-right: 20px; }
+  #content .example {
+    border-top: 1px solid rgba(0, 0, 0, 0.15); }
+    #content .example:after {
+      content: "";
+      display: block;
+      clear: both; }
+    #content .example pre {
+      padding: 10px;
+      float: left;
+      width: 50%;
+      box-sizing: border-box; }
+      #content .example pre code {
+        margin-top: 5px;
+        padding: 10px 15px; }
+  #content .btn {
+    display: inline-block;
+    border-radius: 3px;
+    color: white;
+    background: #02a5f0;
+    padding: 6px 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.5s; }
+    #content .btn:hover {
+      background: #28bafd; }
+    #content .btn.btn-run {
+      float: right;
+      margin-top: 5px; }
+
+/*# sourceMappingURL=app.css.map */
