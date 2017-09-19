@@ -26,7 +26,7 @@ vUtil.Check = {
     },
     /*手机号验证*/
     isPhoneNumber: function (num) {
-        var reg = /^1[0-9]{10}/;
+        var reg = /^1[0-9]{10}$/;
         return reg.test(num);
     }
 
