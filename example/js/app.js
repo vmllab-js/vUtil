@@ -83,6 +83,7 @@
 			window.location.hash = '#/?page=' + page;
 		},
 		showPage: function (page) {
+			$('#content p .page').text(page);
 			$('#content .examples').empty();
 			app.codes = [];
 			$.getJSON('jsons/' + page + '.json', function (json) {

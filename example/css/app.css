@@ -29,6 +29,8 @@ body, html {
 #content {
   padding-left: 280px;
   padding-right: 20px; }
+  #content p {
+    font-weight: bold; }
   #content .example {
     border-top: 1px solid rgba(0, 0, 0, 0.15); }
     #content .example:after {
