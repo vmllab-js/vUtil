@@ -6,6 +6,7 @@
  * @author https://github.com/vmllab-js
  * @since 2017-09-14
  * @version 0.0.1 alpha
+ * @example https://vmllab-js.github.io/vUtil/
  */
 (function (global, factory) {
 
@@ -81,9 +82,9 @@ vUtil.Check = {
 vUtil.Cookie = {
 	/**
   * set the value of a key in cookie
-  * @param key {String}
-  * @param value {String}
-  * @param expires {Number} seconds
+  * @param key {String} necessary
+  * @param value {String} necessary
+  * @param expires {Number} unnecessary seconds
   */
 	set: function set(key, value, expires) {
 		document.cookie = key + "=" + escape(value) + (expires != undefined ? ";expires=" + new Date(Date.now() + expires * 1000).toGMTString() : "");
@@ -91,7 +92,7 @@ vUtil.Cookie = {
 
 	/**
   * get the value of a key in cookie
-  * @param key {String}
+  * @param key {String} necessary
   * @returns {String|Null}
   */
 	get: function get(key) {
@@ -101,7 +102,7 @@ vUtil.Cookie = {
 
 	/**
   * remove a key from cookie
-  * @param key {String}
+  * @param key {String} necessary
   */
 	remove: function remove(key) {
 		this.set(key, '', 0);
@@ -145,22 +146,39 @@ vUtil.Event = {};
 vUtil.Location = {
 	/**
   * analyze the value of a key in location.search
-  * @param key {String}
+  * @param key {String} necessary
   * @returns {String|Null}
   */
 	search: function search(key) {
-		var r = location.search.match(new RegExp("(^|&)" + key + "=([^&]*)(&|$)"));
+		var r = window.location.search.match(new RegExp("([\?|&])" + key + "=([^&]*)(&|$)"));
 		return r ? decodeURIComponent(r[2]) : null;
 	},
 
 	/**
   * analyze the value of a key in location.hash
-  * @param key {String}
+  * @param key {String} necessary
   * @returns {String|Null}
   */
 	hash: function hash(key) {
-		var r = location.hash.match(new RegExp("([\?|&])" + key + "=([^&]*)(&|$)"));
+		var r = window.location.hash.match(new RegExp("([\?|&])" + key + "=([^&]*)(&|$)"));
 		return r ? decodeURIComponent(r[2]) : null;
+	},
+
+	/**
+  * return
+  * @param data {Object} necessary
+  * @param baseUrl {String} unnecessary
+  * @returns {string}
+  */
+	param: function param(data, baseUrl) {
+		if (typeof baseUrl == 'string') {
+			return baseUrl + (baseUrl.indexOf('?') < 0 ? '?' : '&') + this.param(data);
+		}
+		var params = [];
+		for (var key in data) {
+			params.push(key + '=' + encodeURIComponent(data[key]));
+		}
+		return params.join('&');
 	}
 };
 })(vUtil);
@@ -174,6 +192,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  */
 
 vUtil.Math = {
+	/**
+  * return a random value
+  * @param a {Number|String|Array|Object} unnecessary
+  * @param b {Number} unnecessary
+  * @param c {Boolean} unnecessary
+  * @returns {*}
+  */
 	random: function random(a, b, c) {
 		if (arguments.length == 0) {
 			// Math.random
@@ -214,6 +239,14 @@ vUtil.Math = {
 			}
 		}
 	},
+
+	/**
+  * select non-repeating values in an array or less than a number
+  * @param arg {Number|Array} necessary
+  * @param num {Int} necessary
+  * @param force {Boolean} unnecessary
+  * @returns {*}
+  */
 	randomlySelect: function randomlySelect(arg, num, force) {
 		if (typeof arg == "number") {
 			if (!force) {

@@ -3,6 +3,13 @@
  */
 
 vUtil.Math = {
+	/**
+	 * return a random value
+	 * @param a {Number|String|Array|Object} unnecessary
+	 * @param b {Number} unnecessary
+	 * @param c {Boolean} unnecessary
+	 * @returns {*}
+	 */
 	random (a, b, c) {
 		if (arguments.length == 0) {
 			// Math.random
@@ -43,6 +50,13 @@ vUtil.Math = {
 			}
 		}
 	},
+	/**
+	 * select non-repeating values in an array or less than a number
+	 * @param arg {Number|Array} necessary
+	 * @param num {Int} necessary
+	 * @param force {Boolean} unnecessary
+	 * @returns {*}
+	 */
 	randomlySelect (arg, num, force) {
 		if (typeof arg == "number") {
 			if (!force) {

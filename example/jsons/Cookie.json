@@ -1,0 +1,14 @@
+{
+	"examples": [
+		{
+			"func": "vUtil.Cookie.set&get",
+			"desc": "",
+			"code": "vUtil.Cookie.set('foo', 'bar')\nvUtil.Cookie.get('foo')"
+		},
+		{
+			"func": "vUtil.Location.remove",
+			"desc": "",
+			"code": "vUtil.Cookie.remove('foo')\nvUtil.Cookie.get('foo')"
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+	"examples": [
+		{
+			"func": "vUtil.Location.search",
+			"desc": "",
+			"code": "vUtil.Location.search('page')"
+		},
+		{
+			"func": "vUtil.Location.hash",
+			"desc": "",
+			"code": "vUtil.Location.hash('page')"
+		},
+		{
+			"func": "vUtil.Location.param",
+			"desc": "",
+			"code": "log(1, vUtil.Location.param({a:1,b:2}))\nlog(2, vUtil.Location.param({a:1,b:2}, 'https://a.com'))\nlog(3, vUtil.Location.param({backUrl:'https://a.com/b/c/d?e=你好',b:2}, 'https://a.com?c=3'))"
+		}
+	]
+}

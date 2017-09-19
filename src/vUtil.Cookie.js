@@ -5,16 +5,16 @@
 vUtil.Cookie = {
 	/**
 	 * set the value of a key in cookie
-	 * @param key {String}
-	 * @param value {String}
-	 * @param expires {Number} seconds
+	 * @param key {String} necessary
+	 * @param value {String} necessary
+	 * @param expires {Number} unnecessary seconds
 	 */
 	set (key, value, expires) {
 		document.cookie = key + "=" + escape(value) + (expires != undefined ? ";expires=" + new Date(Date.now() + expires * 1000).toGMTString() : "");
 	},
 	/**
 	 * get the value of a key in cookie
-	 * @param key {String}
+	 * @param key {String} necessary
 	 * @returns {String|Null}
 	 */
 	get (key) {
@@ -23,7 +23,7 @@ vUtil.Cookie = {
 	},
 	/**
 	 * remove a key from cookie
-	 * @param key {String}
+	 * @param key {String} necessary
 	 */
 	remove (key) {
 		this.set(key, '', 0);
