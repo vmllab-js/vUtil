@@ -1,0 +1,19 @@
+{
+	"examples": [
+		{
+			"func": "vUtil.Object.merge",
+			"desc": "",
+			"code": "vUtil.Object.merge({name:'哈哈',age:18},{school:'北京大学',gender:'男'})"
+		},
+		{
+			"func": "vUtil.Object.isEqual",
+			"desc": "",
+			"code": "log(vUtil.Object.isEqual({name:'哈哈',age:18},{school:'北京大学',gender:'男'}))\nlog(vUtil.Object.isEqual({name:'哈哈',age:18},{name:'哈哈',age:18}))"
+		},
+		{
+			"func": "vUtil.Object.hasKey",
+			"desc": "",
+			"code": "log(vUtil.Object.hasKey({name:'哈哈',age:18},'age'))\nlog(vUtil.Object.isEqual({name:'哈哈',age:18},'gender'))"
+		}
+	]
+}

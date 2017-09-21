@@ -34,13 +34,13 @@ vUtil.Object = {
         if (obj instanceof Array) {
             let n = [];
             for (let i = 0; i < obj.length; ++i) {
-                n[i] = deepCopy(obj[i]);
+                n[i] = this.deepCopy(obj[i]);
             }
             return n;
         } else if (obj instanceof Object) {
             let n = {};
             for (let i in obj) {
-                n[i] = deepCopy(obj[i]);
+                n[i] = this.deepCopy(obj[i]);
             }
             return n;
         }
