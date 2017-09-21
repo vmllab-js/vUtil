@@ -2,4 +2,6 @@
  * @author: iorilp
  */
 
-vUtil.Event = {};
+vUtil.Event = {
+
+};

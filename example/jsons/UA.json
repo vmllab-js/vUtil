@@ -8,7 +8,7 @@
 		{
 			"func": "vUtil.UA",
 			"desc": "",
-			"code": "log( vUtil.UA.ios )\nlog( vUtil.UA.android )\nlog( vUtil.UA.pc )\nlog( vUtil.UA.device )"
+			"code": "log( vUtil.UA.ios )\nlog( vUtil.UA.android )\nlog( vUtil.UA.pc )\nlog( vUtil.UA.mobile )\nlog( vUtil.UA.wx )\nlog( vUtil.UA.dd )\nlog( vUtil.UA.wb )\nlog( vUtil.UA.system )\nlog( vUtil.UA.app )"
 		}
 	]
 }
