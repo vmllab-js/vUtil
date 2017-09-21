@@ -4,6 +4,56 @@
 			"func": "vUtil.Array.randomArr",
 			"desc": "",
 			"code": "vUtil.Array.randomArr([0,1,2,3,4,5,6,7,8,9,10])"
+		},
+		{
+			"func": "vUtil.Array.getMax",
+			"desc": "",
+			"code": "vUtil.Array.getMax([0,1,2,3,4,5,6,7,8,9,10])"
+		},
+		{
+			"func": "vUtil.Array.getMin",
+			"desc": "",
+			"code": "vUtil.Array.getMin([0,1,2,3,4,5,6,7,8,9,10])"
+		},
+		{
+			"func": "vUtil.Array.getMaxPara",
+			"desc": "",
+			"code": "vUtil.Array.getMaxPara([{name:'小明',age:20},{name:'小红',age:22}],'age')"
+		},
+		{
+			"func": "vUtil.Array.getMinPara",
+			"desc": "",
+			"code": "vUtil.Array.getMinPara([{name:'小明',age:20},{name:'小红',age:22}],'age')"
+		},
+		{
+			"func": "vUtil.Array.getMaxParaIndex",
+			"desc": "",
+			"code": "vUtil.Array.getMaxParaIndex([{name:'小明',age:20},{name:'小红',age:22}],'age')"
+		},
+		{
+			"func": "vUtil.Array.getMinParaIndex",
+			"desc": "",
+			"code": "vUtil.Array.getMinParaIndex([{name:'小明',age:20},{name:'小红',age:22}],'age')"
+		},
+		{
+			"func": "vUtil.Array.getByPara",
+			"desc": "",
+			"code": "vUtil.Array.getByPara([{name:'小明',age:20},{name:'小红',age:22}],function(item,index){return item.age>20})"
+		},
+		{
+			"func": "vUtil.Array.createArr",
+			"desc": "",
+			"code": "vUtil.Array.createArr(10,function(){return {count:vUtil.Math.random(50,100)}})"
+		},
+		{
+			"func": "vUtil.Array.replaceArr",
+			"desc": "",
+			"code": "log(vUtil.Array.replaceArr([0,1,2,3,4,5,6,7,8,9,10],5,0))\nlog(vUtil.Array.replaceArr([0,1,2,3,4,5,6,7,8,9,10],10,0))"
+		},
+		{
+			"func": "vUtil.Array.includes",
+			"desc": "",
+			"code": "log(vUtil.Array.includes([1,2,3],2))\nlog(vUtil.Array.includes([1,2,NaN],NaN))"
 		}
 	]
 }
