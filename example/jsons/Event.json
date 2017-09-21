@@ -1,0 +1,9 @@
+{
+	"examples": [
+		{
+			"func": "vUtil.Event.init([argument0,argument1,...])",
+			"desc": "",
+			"code": "vUtil.Event.init(['canvas','.abc','#abc'])"
+		}
+	]
+}
