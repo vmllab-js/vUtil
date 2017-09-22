@@ -69,5 +69,46 @@ vUtil.DOM = {
 
         DOM.addEventListener('focus', addPlaceholder);
         DOM.addEventListener('blur', removePlaceholder);
+    },
+
+    /**
+     * 获取屏幕宽高
+     * @return {Object} 宽高
+     */
+    getWindowSize() {
+        return {
+            w: document.documentElement.clientWidth,
+            h: document.documentElement.clientHeight
+        };
+    },
+
+    /**
+     * 获取rem比例
+     * @param  {Number} remNum rem基数
+     * @return {Number}        比例
+     */
+    getRemScale(remNum = 100) {
+        return parseFloat(document.documentElement.style.fontSize) / remNum;
+    },
+
+    /**
+     * 开启rem适配
+     * @param  {Number} [remNum=100]      rem基数
+     * @param  {Number} [layoutWidth=640] layout宽度
+     */
+    useRem(remNum = 100, layoutWidth = 640) {
+        const resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        const resizeCalculate = () => {
+            if (!vUtil.DOM.getWindowSize().w) {
+                return;
+            }
+            document.documentElement.style.fontSize = remNum * (vUtil.DOM.getWindowSize().w / layoutWidth) + 'px';
+        };
+        if (!document.addEventListener) {
+            return;
+        }
+        resizeCalculate();
+        window.addEventListener(resizeEvent, resizeCalculate, false);
+        document.addEventListener('DOMContentLoaded', resizeCalculate, false);
     }
 };
