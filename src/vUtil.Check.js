@@ -1,7 +1,6 @@
 /**
  * @author: Miller Liang
  */
-
 vUtil.Check = {
     /*判断OBJ是否为空*/
     isObjEmpty: function (obj) {
@@ -28,6 +27,10 @@ vUtil.Check = {
     isPhoneNumber: function (num) {
         var reg = /^1[0-9]{10}$/;
         return reg.test(num);
+    },
+    /*是否为数字*/
+    isNumeric: function (str) {
+        return /^(?:[1-9]\d*|0)(?:\.\d+)?$/.test(str);
     }
 
 }
