@@ -1,0 +1,34 @@
+{
+  "examples": [
+    {
+      "func": "vUtil.String.trimSpace",
+      "desc": "",
+      "code": "log( vUtil.String.trimSpace(' aa  dd  '))\nlog( vUtil.String.trimSpace(' aadd  '))"
+    },
+    {
+      "func": "vUtil.String.swapCase",
+      "desc": "",
+      "code": "log( vUtil.String.swapCase('AAABBBCCC'))\nlog( vUtil.String.swapCase('aaabbbccc'))"
+    },
+    {
+      "func": "vUtil.String.reverse",
+      "desc": "",
+      "code": "log( vUtil.String.reverse('abcdefg'))\nlog( vUtil.String.reverse('123456'))"
+    },
+    {
+      "func": "vUtil.String.isChinese",
+      "desc": "",
+      "code": "log( vUtil.String.isChinese('我是中文'))\nlog( vUtil.String.isChinese('english'))\nlog( vUtil.String.isChinese('中文english'))"
+    },
+    {
+      "func": "vUtil.String.removeChinese",
+      "desc": "",
+      "code": "log( vUtil.String.removeChinese('absc我是中文'))"
+    },
+    {
+      "func": "vUtil.String.sliceStr",
+      "desc": "",
+      "code": "log( vUtil.String.sliceStr('english',4))"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "examples": [
+    {
+      "func": "vUtil.Check.isObjEmpty",
+      "desc": "",
+      "code": "log( vUtil.Check.isObjEmpty({}))\nlog( vUtil.Check.isObjEmpty({a:1,b:2}))"
+    },
+    {
+      "func": "vUtil.Check.isNullTrim",
+      "desc": "",
+      "code": "log( vUtil.Check.isNullTrim('   有空格'))\nlog( vUtil.Check.isNullTrim('   '))\nlog( vUtil.Check.isNullTrim(''))"
+    },
+    {
+      "func": "vUtil.Check.isEmail",
+      "desc": "",
+      "code": "log( vUtil.Check.isEmail('123@qq.com'))\nlog( vUtil.Check.isEmail('123@qq'))\nlog( vUtil.Check.isEmail('123'))"
+    },
+    {
+      "func": "vUtil.Check.isPhoneNumber",
+      "desc": "",
+      "code": "log( vUtil.Check.isPhoneNumber('132'))\nlog( vUtil.Check.isPhoneNumber('131222233334'))\nlog( vUtil.Check.isPhoneNumber('13122223333'))\nlog( vUtil.Check.isPhoneNumber('16522223333'))"
+    },
+    {
+      "func": "vUtil.Check.isNumeric",
+      "desc": "",
+      "code": "log( vUtil.Check.isNumeric('数字'))\nlog( vUtil.Check.isNumeric('shuzi'))\nlog( vUtil.Check.isNumeric('123'))\nlog( vUtil.Check.isNumeric(123))"
+    }
+  ]
+}

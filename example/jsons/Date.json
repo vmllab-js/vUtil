@@ -1,0 +1,44 @@
+{
+  "examples": [
+    {
+      "func": "vUtil.Date.getCurrentTime",
+      "desc": "获取当前时间",
+      "code": "log( vUtil.Date.getCurrentTime())"
+    },
+    {
+      "func": "vUtil.Date.getCurrentDate",
+      "desc": "获取当前 年-月-日",
+      "code": "log( vUtil.Date.getCurrentDate())"
+    },
+    {
+      "func": "vUtil.Date.getCurrentYear",
+      "desc": "获取当前年份",
+      "code": "log( vUtil.Date.getCurrentYear())"
+    },
+    {
+      "func": "vUtil.Date.getCurrentMonth",
+      "desc": "获取当前月份",
+      "code": "log( vUtil.Date.getCurrentMonth())"
+    },
+    {
+      "func": "vUtil.Date.getCurrentDay",
+      "desc": "获取当前日期",
+      "code": "log( vUtil.Date.getCurrentDay())"
+    },
+    {
+      "func": "vUtil.Date.getCurrentWeek",
+      "desc": "获取当前星期几--0是星期天",
+      "code": "log( vUtil.Date.getCurrentWeek())"
+    },
+    {
+      "func": "vUtil.Date.getDaysOfMonth",
+      "desc": "获取某个月的天数，从0开始。参数year,month",
+      "code": "log( vUtil.Date.getDaysOfMonth())\nlog( vUtil.Date.getDaysOfMonth(2017,1))\nlog( vUtil.Date.getDaysOfMonth(2017,2))"
+    },
+    {
+      "func": "vUtil.Date.dateFormat",
+      "desc": "日期格式化，第一个参数为日期，第二个参数为日期格式化的格式，返回一个格式化后的字符串",
+      "code": "log( vUtil.Date.dateFormat(new Date,'yyyy-MM-dd'))"
+    }
+  ]
+}

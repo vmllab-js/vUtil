@@ -4,8 +4,8 @@
 
 vUtil.String = {
     /**清除首尾的空格*/
-    trimSpace: function () {
-        return this.replace(/^\s+|\s+$/g, "");
+    trimSpace: function (str) {
+        return str.replace(/^\s+|\s+$/g, "");
     },
     /**大写转小写，小写转大写*/
     swapCase: function (str) {

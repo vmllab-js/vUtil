@@ -49,7 +49,17 @@ vUtil.Date = {
     },
     //获取某个月的天数，从0开始
     getDaysOfMonth: function (year, month) {
-        return [31, (this.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+        if (arguments.length == 0) {
+            var _year = this.getCurrentYear();
+            var _month = this.getCurrentMonth();
+            return _getDays(_year, _month);
+        } else {
+            return _getDays(year, month);
+        }
+        function _getDays(_y, _m) {
+            var d = new Date(_y, _m, 0);
+            return d.getDate();
+        }
     },
     /**日期格式化，第一个参数为日期，第二个参数为日期格式化的格式，返回一个格式化后的字符串*/
     dateFormat: function (date, format) {
@@ -67,7 +77,7 @@ vUtil.Date = {
         }
         for (var k in times) {
             if (new RegExp("(" + k + ")").test(format)) {
-                format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + times[k]).substr(("" + times[k]).length));
+                format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? times[k] : ("00" + times[k]).substr(("" + times[k]).length));
             }
         }
         return format;
