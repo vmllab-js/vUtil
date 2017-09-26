@@ -1,7 +1,7 @@
 {
 	"examples": [
 		{
-			"func": "vUtil.Location.search)",
+			"func": "vUtil.Location.search",
 			"desc": "",
 			"code": "window.location.search='?foo=bar';\nlog( vUtil.Location.search('page') )\nlog( vUtil.Location.search() )"
 		},

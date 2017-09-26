@@ -17,14 +17,14 @@
 
 	var app = {
 		list: [
+			'Math',
 			'Array',
 			'Check',
 			'Cookie',
 			'Date',
-			'DOM',
+			// 'DOM',
 			'Event',
 			'Location',
-			'Math',
 			'Object',
 			'String',
 			'UA'
