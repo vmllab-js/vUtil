@@ -38,7 +38,7 @@
     {
       "func": "vUtil.Date.dateFormat",
       "desc": "日期格式化，第一个参数为日期，第二个参数为日期格式化的格式，返回一个格式化后的字符串",
-      "code": "log( vUtil.Date.dateFormat(new Date,'yyyy-MM-dd'))"
+      "code": "log( vUtil.Date.dateFormat(new Date,'yyyy-MM-dd hh:mm:ss'))\nlog( vUtil.Date.dateFormat(new Date(0),'yyyy-MM-dd hh:mm:ss'))"
     }
   ]
 }
