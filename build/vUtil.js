@@ -5,7 +5,7 @@
  *
  * @author https://github.com/vmllab-js
  * @since 2017-09-14
- * @version 0.0.1 alpha
+ * @version 1.0.0
  * @example https://vmllab-js.github.io/vUtil/
  */
 (function (global, factory) {
