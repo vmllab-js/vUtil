@@ -10,7 +10,7 @@ vUtil.Cookie = {
 	 * @param expires {Number} unnecessary seconds
 	 */
 	set (key, value, expires) {
-		if (typeof key == 'object') {
+		if (typeof key === 'object') {
 			for (let k in key) {
 				this.set(k, key[k], value);
 			}

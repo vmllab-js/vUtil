@@ -297,7 +297,7 @@ vUtil.Cookie = {
   * @param expires {Number} unnecessary seconds
   */
 	set: function set(key, value, expires) {
-		if ((typeof key === "undefined" ? "undefined" : _typeof(key)) == 'object') {
+		if ((typeof key === "undefined" ? "undefined" : _typeof(key)) === 'object') {
 			for (var k in key) {
 				this.set(k, key[k], value);
 			}
@@ -666,17 +666,11 @@ vUtil.Location = {
 	/**
   * analyze the value of a key in location.search, or the keys and values in location.search
   * @param key {String} unnecessary
-  * @returns {String|Null}
+  * @returns {Object|String|Null}
   */
 	search: function search(key) {
 		if (!arguments.length) {
-			var ret = {};
-			var arr = window.location.search.substr(1).split('&');
-			arr.forEach(function (str) {
-				var r = str.match(/^(\S*)=(\S*)$/);
-				if (r && r[1]) ret[r[1]] = r[2];
-			});
-			return ret;
+			return this.splitSearch(window.location.search.substr(1));
 		} else {
 			var r = window.location.search.match(new RegExp("([\?|&])" + key + "=([^&]*)(&|$)"));
 			return r ? decodeURIComponent(r[2]) : null;
@@ -692,16 +686,27 @@ vUtil.Location = {
 		if (!arguments.length) {
 			var ret = {};
 			if (window.location.hash.indexOf('?') < 0) return ret;
-			var arr = window.location.hash.substr(window.location.hash.indexOf('?') + 1).split('&');
-			arr.forEach(function (str) {
-				var r = str.match(/^(\S*)=(\S*)$/);
-				if (r && r[1]) ret[r[1]] = r[2];
-			});
-			return ret;
+			return this.splitSearch(window.location.hash.substr(window.location.hash.indexOf('?') + 1));
 		} else {
 			var r = window.location.hash.match(new RegExp("([\?|&])" + key + "=([^&]*)(&|$)"));
 			return r ? decodeURIComponent(r[2]) : null;
 		}
+	},
+
+	/**
+  * split search string to object
+  * @param searchStr {String}
+  * @returns {Object}
+  * @example "a=b&c=d" => {"a":"b","c":"d"}
+  */
+	splitSearch: function splitSearch(searchStr) {
+		var ret = {};
+		var arr = searchStr.split('&');
+		arr.forEach(function (str) {
+			var r = str.match(/^(\S*)=(\S*)$/);
+			if (r && r[1]) ret[r[1]] = r[2];
+		});
+		return ret;
 	},
 
 	/**
@@ -711,15 +716,22 @@ vUtil.Location = {
   * @returns {string}
   */
 	param: function param(a, b) {
-		if ((typeof a === "undefined" ? "undefined" : _typeof(a)) == 'object' && typeof b == 'string') {
-			return b + (b.indexOf('?') < 0 ? '?' : '&') + this.param(a);
+		if ((typeof a === "undefined" ? "undefined" : _typeof(a)) === 'object' && typeof b === 'string') {
+			return this.param(b, a);
 		}
-		if ((typeof b === "undefined" ? "undefined" : _typeof(b)) == 'object' && typeof a == 'string') {
-			return a + (a.indexOf('?') < 0 ? '?' : '&') + this.param(b);
+		if ((typeof b === "undefined" ? "undefined" : _typeof(b)) === 'object' && typeof a === 'string') {
+			var arr = a.split('#');
+			var arr2 = arr[0].split('?');
+			var obj = arr2[1] ? this.splitSearch(arr2[1]) : {};
+			for (var key in b) {
+				obj[key] = b[key];
+			}
+			var search = this.param(obj);
+			return arr2[0] + '?' + search + (arr[1] ? '#' + arr[1] : '');
 		}
 		var params = [];
-		for (var key in a) {
-			params.push(key + '=' + encodeURIComponent(a[key]));
+		for (var _key in a) {
+			params.push(_key + '=' + encodeURIComponent(a[_key]));
 		}
 		return params.join('&');
 	}
@@ -743,18 +755,18 @@ vUtil.Math = {
   * @returns {*}
   */
 	random: function random(a, b, c) {
-		if (arguments.length == 0) {
+		if (arguments.length === 0) {
 			// Math.random
 			return rand();
 		}
-		if (typeof a == 'number') {
+		if (typeof a === 'number') {
 			// Float
-			if (typeof b == 'boolean' && b) {
+			if (typeof b === 'boolean' && b) {
 				return rand() * a;
 			}
-			if (typeof b == 'number') {
+			if (typeof b === 'number') {
 				// Float
-				if (typeof c == 'boolean' && c) {
+				if (typeof c === 'boolean' && c) {
 					return a + rand() * (b - a);
 				}
 				// Int
@@ -763,11 +775,11 @@ vUtil.Math = {
 			// Int
 			return Math.floor(rand() * a);
 		}
-		if (typeof a == 'string') {
+		if (typeof a === 'string') {
 			// String
 			return a[this.random(a.length)];
 		}
-		if ((typeof a === 'undefined' ? 'undefined' : _typeof(a)) == 'object') {
+		if ((typeof a === 'undefined' ? 'undefined' : _typeof(a)) === 'object') {
 			if (a instanceof window.Array) {
 				// Array
 				return a[this.random(a.length)];
@@ -791,7 +803,7 @@ vUtil.Math = {
   * @returns {*}
   */
 	randomlySelect: function randomlySelect(arg, num, force) {
-		if (typeof arg == "number") {
+		if (typeof arg === "number") {
 			if (!force) {
 				// Int
 				var nums = [];

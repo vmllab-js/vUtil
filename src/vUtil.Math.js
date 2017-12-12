@@ -11,18 +11,18 @@ vUtil.Math = {
 	 * @returns {*}
 	 */
 	random (a, b, c) {
-		if (arguments.length == 0) {
+		if (arguments.length === 0) {
 			// Math.random
 			return rand();
 		}
-		if (typeof a == 'number') {
+		if (typeof a === 'number') {
 			// Float
-			if (typeof b == 'boolean' && b) {
+			if (typeof b === 'boolean' && b) {
 				return rand() * a;
 			}
-			if (typeof b == 'number') {
+			if (typeof b === 'number') {
 				// Float
-				if (typeof c == 'boolean' && c) {
+				if (typeof c === 'boolean' && c) {
 					return a + rand() * (b - a);
 				}
 				// Int
@@ -31,11 +31,11 @@ vUtil.Math = {
 			// Int
 			return Math.floor(rand() * a);
 		}
-		if (typeof a == 'string') {
+		if (typeof a === 'string') {
 			// String
 			return a[this.random(a.length)];
 		}
-		if (typeof a == 'object') {
+		if (typeof a === 'object') {
 			if (a instanceof window.Array) {
 				// Array
 				return a[this.random(a.length)];
@@ -58,7 +58,7 @@ vUtil.Math = {
 	 * @returns {*}
 	 */
 	randomlySelect (arg, num, force) {
-		if (typeof arg == "number") {
+		if (typeof arg === "number") {
 			if (!force) {
 				// Int
 				let nums = [];
