@@ -731,7 +731,7 @@ vUtil.Location = {
 		}
 		var params = [];
 		for (var _key in a) {
-			params.push(_key + '=' + encodeURIComponent(a[_key]));
+			params.push(_key + '=' + (a[_key] !== undefined && a[_key] !== null ? encodeURIComponent(a[_key]) : ''));
 		}
 		return params.join('&');
 	}

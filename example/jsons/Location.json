@@ -13,7 +13,7 @@
 		{
 			"func": "vUtil.Location.param",
 			"desc": "",
-			"code": "log(1, vUtil.Location.param({a:1, b:2}))\nlog(2, vUtil.Location.param('http://a.com', {foo:'bar'}))\nlog(3, vUtil.Location.param({foo:'bar'}, 'http://a.com'))\nlog(4, vUtil.Location.param('http://a.com?c=1#/page1?d=123', {c:2, backUrl:'http://a.com/?b=你好'}))"
+			"code": "log(1, vUtil.Location.param({a:1, b:null}))\nlog(2, vUtil.Location.param('http://a.com', {foo:'bar'}))\nlog(3, vUtil.Location.param({foo:'bar'}, 'http://a.com'))\nlog(4, vUtil.Location.param('http://a.com?c=1#/page1?d=123', {c:2, backUrl:'http://a.com/?b=你好'}))"
 		}
 	]
 }

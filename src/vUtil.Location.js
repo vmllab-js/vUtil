@@ -68,7 +68,7 @@ vUtil.Location = {
 		}
 		let params = [];
 		for (let key in a) {
-			params.push(key + '=' + encodeURIComponent(a[key]));
+			params.push(key + '=' + (a[key] !== undefined && a[key] !== null ? encodeURIComponent(a[key]) : ''));
 		}
 		return params.join('&');
 	}
