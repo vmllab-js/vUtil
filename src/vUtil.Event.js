@@ -31,13 +31,13 @@ vUtil.Event = {
 
             //获取父容器tag、class、id
             let tag = event.target.parentNode.tagName || false;
-            let tagClass = event.target.getAttribute("class") || false;
-            let tagId = event.target.getAttribute("id") || false;
+            let tagClass = event.target.parentNode.getAttribute("class") || false;
+            let tagId = event.target.parentNode.getAttribute("id") || false;
 
             //获取tag、class、id
-            let thisTag = event.target.tagName;
-            let thisTagClass = event.target.getAttribute("class");
-            let thisTagId = event.target.getAttribute("id");
+            let thisTag = event.target.tagName || false;
+            let thisTagClass = event.target.getAttribute("class") || false;
+            let thisTagId = event.target.getAttribute("id") || false;
 
             let isExcludeTag = false;
             let isExcludeTagClass = false;
